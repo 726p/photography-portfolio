@@ -1,0 +1,190 @@
+﻿/* ============================================
+   全局样式 —— 暗色系 · 高级 · 科技感
+   版心宽度：1700px
+   ============================================ */
+
+:root {
+  --color-bg: #0a0a0a;
+  --color-bg-secondary: #111111;
+  --color-bg-card: #1a1a1a;
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: #999999;
+  --color-text-muted: #666666;
+  --color-accent: #c0a060;
+  --color-accent-hover: #d4b870;
+  --color-border: #2a2a2a;
+  --max-width: 1700px;
+  --nav-height: 70px;
+  --transition: all 0.3s ease;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* 版心容器 */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Section 通用 */
+.section {
+  padding: 100px 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+  text-align: center;
+  color: var(--color-text-primary);
+
+/* 按钮 */
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  background: transparent;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.btn--filled {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.btn--filled:hover {
+  background: var(--color-accent-hover);
+}
+
+/* 滚动条 */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-muted); }
+
+
+
+
+
+/* ============================================
+   滚动入场动画
+   ============================================ */
+
+/* 基础：透明 + 不可见，等触发后再显示 */
+[class*="animate-"]:not(.section-title) {
+  opacity: 0;
+}
+[class*="animate-"].visible {
+  animation-fill-mode: both;
+}
+
+/* 1. 上滑淡入 */
+@keyframes animFadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeUp.visible {
+  animation: animFadeUp 0.8s ease both;
+}
+
+/* 2. 左滑淡入 */
+@keyframes animFadeLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.animate-fadeLeft.visible {
+  animation: animFadeLeft 0.8s ease both;
+}
+
+/* 3. 右滑淡入 */
+@keyframes animFadeRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.animate-fadeRight.visible {
+  animation: animFadeRight 0.8s ease both;
+}
+
+/* 4. 缩放淡入 */
+@keyframes animScaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-scaleIn.visible {
+  animation: animScaleIn 0.7s ease both;
+}
+
+/* 5. 下滑淡入（带弹性） */
+@keyframes animSlideUp {
+  from { opacity: 0; transform: translateY(60px); }
+  60% { transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-slideUp.visible {
+  animation: animSlideUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* 6. 旋转淡入 */
+@keyframes animRotateIn {
+  from { opacity: 0; transform: perspective(600px) rotateX(-15deg) translateY(30px); }
+  to { opacity: 1; transform: perspective(600px) rotateX(0deg) translateY(0); }
+}
+.animate-rotateIn.visible {
+  animation: animRotateIn 0.9s ease both;
+}
+
+/* 7. 翻转淡入 */
+@keyframes animFlipIn {
+  from { opacity: 0; transform: perspective(500px) rotateY(20deg) translateX(-20px); }
+  to { opacity: 1; transform: perspective(500px) rotateY(0deg) translateX(0); }
+}
+.animate-flipIn.visible {
+  animation: animFlipIn 0.8s ease both;
+}
+
+
+
+
+
+
+
+
+
+
+
